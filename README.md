@@ -6,6 +6,8 @@
 
 GitPage访问链接: [zbwer.github.io/YiluRecurit/](https://zbwer.github.io/YiluRecurit/)
 
+**强烈建议**:直接访问gitpage,一站式审阅各个题目的前端效果.
+
 ## 📝 目录结构描述
 
 ```cpp
