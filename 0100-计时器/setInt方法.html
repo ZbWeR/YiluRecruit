@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="inputNum" placeholder="请输入数字">
+    <button id="btnStart">开始倒计时</button>
+    <p id="cont"></p>
+</body>
+
+<script>
+    var numP = document.querySelector('#cont');
+    var inputNum = document.querySelector('#inputNum');
+    var btn = document.querySelector('#btnStart');
+    var Num = inputNum.value;
+    var Int;
+
+    function Run() {
+        console.log(Num);
+        numP.innerHTML = Num;
+        Num--;
+        if (Num == -1) clearInterval(Int);
+    }
+    // 保证timer能正常运行，并能形成计时器的功能
+    function runTimer() {
+        Num = inputNum.value;
+        Int = setInterval(Run, 1000);
+        console.log('end');
+    }
+    btn.addEventListener("click", runTimer);
+</script>
+
+</html>

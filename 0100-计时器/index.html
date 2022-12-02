@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(200deg, #f3e7e9, #e3eeff);
+        }
+
+        input {
+            height: 50px;
+            width: 150px;
+            border: 2px solid cadetblue;
+            border-radius: 20px;
+            padding-left: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        button {
+            height: 50px;
+            margin-left: 30px;
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid cadetblue;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            background-color: cadetblue;
+            color: #fff;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 40px;
+        }
+
+        #backNav {
+            font-size: 20px;
+            position: absolute;
+            top: 300px;
+            color: #000;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../index.html" id="backNav">返回导航</a>
+    <div class="box">
+        <input type="number" id="inputNum" placeholder="请输入数字">
+        <button id="btnStart">开始倒计时</button>
+        <p id="cont"></p>
+    </div>
+</body>
+
+<script>
+    var numP = document.querySelector('#cont');
+    var inputNum = document.querySelector('#inputNum');
+    var btn = document.querySelector('#btnStart');
+
+    function resolveAfter1Second(number) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(number - 1);
+            }, 1000);
+        });
+    }
+
+    const timer = async (number) => {
+        console.log("Start timer");
+        numP.innerHTML = number;
+        for (let i = number; i >= 1; i--) {
+            let Start = Date.now();
+            await t(i);
+            console.log(Date.now() - Start);
+        }
+        console.log('end');
+        numP.innerHTML = "倒计时结束！"
+    }
+    const t = async (timeout) => {
+        const a = await new Promise(resolve => {
+            setTimeout(() => {
+                resolve(timeout - 1);
+            }, 1000);
+        });
+        numP.innerHTML = a;
+    }
+
+    // 保证timer能正常运行，并能形成计时器的功能
+    function runTimer() {
+        console.log("runTimer");
+        timer(inputNum.value);
+    }
+    btn.addEventListener("click", runTimer);
+</script>
+
+</html>

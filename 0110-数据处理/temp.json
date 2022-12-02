@@ -1,0 +1,26 @@
+{
+    "status": "success",
+    "data": {
+        "network": "DOGE",
+        "prices": [
+            {
+                "price": "0.08154",
+                "price_base": "USD",
+                "exchange": "bittrex",
+                "time": 1669186308
+            },
+            {
+                "price": "0.0817",
+                "price_base": "USD",
+                "exchange": "binance",
+                "time": 1669186309
+            },
+            {
+                "price": "0.08147",
+                "price_base": "USD",
+                "exchange": "gemini",
+                "time": 1669186339
+            }
+        ]
+    }
+}

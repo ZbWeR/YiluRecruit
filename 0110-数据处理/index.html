@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="../index.html" id="backNav">返回导航</a>
+    <div class="big">
+        <button id="hidFirst"></button>
+        <div class="box">
+            <p>DOGE / USD</p>
+            <h2 id="price">0.062993</h2>
+            <span>&nbsp; biance</span>
+            <button onclick="promiseFlase()">change</button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var firstFlash = document.querySelector('#hidFirst');
+
+    function promiseFlase() {
+        let dateUrl = "https://chain.so/api/v2/get_price/DOGE/USD";
+        return new Promise((reslove, reject) => {
+            let request = new XMLHttpRequest();
+            request.open('get', dateUrl, true);
+            request.send(null);
+            request.onreadystatechange = () => {
+                if (request.readyState == 4) {
+                    if (request.status === 200) {
+                        let responDate = JSON.parse(request.responseText);
+                        console.log(responDate);
+                        let boxContainer = document.querySelector('.box');
+                        dataPrice = responDate.data.prices[1].price;
+                        // dataPrice = 0.24; 
+                        dataExchang = responDate.data.prices[1].exchange;
+                        let strHtml = "";
+                        strHtml += String.raw`
+                            <p> DOGE / USD </p>
+                            <h2 id="price">${dataPrice}</h2>
+                            <span>&nbsp; ${dataExchang}</span>
+                            <button onclick="Flash()">change</button>
+                        `;
+                        boxContainer.innerHTML = strHtml;
+                        if (dataPrice > 0.23) {
+                            let price = document.getElementById('price');
+                            document.getElementById('price').style.color = "red";
+                        }
+                    }
+                }
+            }
+        })
+    }
+</script>
+
+</html>
