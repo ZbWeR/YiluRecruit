@@ -4,7 +4,7 @@
 
 ## 🎯 评卷须知
 
-GitPage访问链接: [zbwer.github.io/Yilu-From-zbwer/](https://zbwer.github.io/Yilu-From-zbwer/)
+GitPage访问链接: [zbwer.github.io/YiluRecurit/](https://zbwer.github.io/YiluRecurit/)
 
 ## 📝 目录结构描述
 
